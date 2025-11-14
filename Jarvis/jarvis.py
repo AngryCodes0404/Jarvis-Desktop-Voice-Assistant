@@ -9,10 +9,10 @@ import pyautogui
 import pyjokes
 
 engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)  
-engine.setProperty('rate', 150)
-engine.setProperty('volume', 1)
+voices = engine.getProperty("voices")
+engine.setProperty("voice", voices[1].id)
+engine.setProperty("rate", 150)
+engine.setProperty("volume", 1)
 
 
 def speak(audio) -> None:
@@ -67,6 +67,7 @@ def screenshot() -> None:
     speak(f"Screenshot saved as {img_path}.")
     print(f"Screenshot saved as {img_path}.")
 
+
 def takecommand() -> str:
     """Takes microphone input from the user and returns it as text."""
     r = sr.Recognizer()
@@ -96,6 +97,7 @@ def takecommand() -> str:
         print(f"Error: {e}")
         return None
 
+
 def play_music(song_name=None) -> None:
     """Plays music from the user's Music directory."""
     song_dir = os.path.expanduser("~\\Music")
@@ -113,6 +115,7 @@ def play_music(song_name=None) -> None:
         speak("No song found.")
         print("No song found.")
 
+
 def set_name() -> None:
     """Sets a new name for the assistant."""
     speak("What would you like to name me?")
@@ -123,6 +126,7 @@ def set_name() -> None:
         speak(f"Alright, I will be called {name} from now on.")
     else:
         speak("Sorry, I couldn't catch that.")
+
 
 def load_name() -> str:
     """Loads the assistant's name from a file, or uses a default name."""
@@ -156,7 +160,7 @@ if __name__ == "__main__":
 
         if "time" in query:
             time()
-            
+
         elif "date" in query:
             date()
 
@@ -170,7 +174,7 @@ if __name__ == "__main__":
 
         elif "open youtube" in query:
             wb.open("youtube.com")
-            
+
         elif "open google" in query:
             wb.open("google.com")
 
@@ -190,12 +194,12 @@ if __name__ == "__main__":
             speak("Shutting down the system, goodbye!")
             os.system("shutdown /s /f /t 1")
             break
-            
+
         elif "restart" in query:
             speak("Restarting the system, please wait!")
             os.system("shutdown /r /f /t 1")
             break
-            
+
         elif "offline" in query or "exit" in query:
             speak("Going offline. Have a good day!")
             break
